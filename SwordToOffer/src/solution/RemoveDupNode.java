@@ -28,7 +28,7 @@ public class RemoveDupNode {
                     }
                 }
                 tempNode.next = tempHead.next;
-            }else{
+            } else {
                 tempHead = tempHead.next;
                 tempNode = tempHead;
             }
