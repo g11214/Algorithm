@@ -1,37 +1,51 @@
 package solution;
 
 import common.TreeNode;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * 从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
  */
 public class PrintTreeByFloor {
     ArrayList<ArrayList<Integer>> Print(TreeNode pRoot) {
-        ArrayList<ArrayList<Integer>> floorList = new ArrayList<>();
-
+        ArrayList<ArrayList<Integer>> arrFloorList = new ArrayList<>();
+        ArrayList<Integer> arrFloor = new ArrayList<>();
+        if(pRoot==null){
+            return arrFloorList;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(pRoot);
+        //当前层数量
+        int floorCount = 1;
+        //下层数量
+        int floorNextCount = 0;
+        //当前层索引
         int floorIndex = 0;
-        int nextFloorCount = 0;
 
-        while(pRoot!=null){
-            ArrayList<Integer> list = new ArrayList<>();
-            list.add(pRoot.val);
-
-            if(pRoot.left!=null){
-                list.add(pRoot.val);
-                floorIndex++;
+        while (!queue.isEmpty()) {
+            TreeNode tempNode = queue.poll();
+            floorIndex++;
+            arrFloor.add(tempNode.val);
+            if (tempNode.left != null) {
+                queue.offer(tempNode.left);
+                floorNextCount++;
             }
-            if(pRoot.right!=null){
-                list.add(pRoot.val);
-                floorIndex++;
+            if (tempNode.right != null) {
+                queue.offer(tempNode.right);
+                floorNextCount++;
             }
-            if(floorIndex==nextFloorCount){
-                nextFloorCount=floorIndex;
+            //当前层结束
+            if (floorIndex == floorCount) {
+                floorCount = floorNextCount;
                 floorIndex = 0;
-                floorList.add(list);
+                floorNextCount = 0;
+                arrFloorList.add(arrFloor);
+                arrFloor = new ArrayList<>();
             }
         }
-
-        return floorList;
+        return arrFloorList;
     }
 }
