@@ -28,7 +28,7 @@ public class RemoveDupNode {
                     }
                 }
                 tempNode.next = tempHead.next;
-            } else {
+            } else {//之前出错点
                 tempHead = tempHead.next;
                 tempNode = tempHead;
             }
