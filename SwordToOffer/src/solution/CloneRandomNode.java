@@ -8,14 +8,14 @@ import common.RandomListNode;
  */
 public class CloneRandomNode {
     public RandomListNode Clone(RandomListNode pHead) {
-        if(pHead==null){
+        if (pHead == null) {
             return null;
         }
         RandomListNode newNode = pHead;
         /**
          * 在原链表中插入新链表
          */
-        while(newNode!=null){
+        while (newNode != null) {
             RandomListNode currNode = new RandomListNode(newNode.label);
             currNode.next = newNode.next;
             newNode.next = currNode;
@@ -24,20 +24,20 @@ public class CloneRandomNode {
         /**
          * 复制随机链表属性
          */
-        newNode =pHead;
-        while(newNode!=null){
-            if(newNode.random!=null){
+        newNode = pHead;
+        while (newNode != null) {
+            if (newNode.random != null) {
                 newNode.next.random = newNode.random.next;
             }
-            newNode=newNode.next.next;
+            newNode = newNode.next.next;
         }
         /**
          * 拆分出新链表
          */
         RandomListNode cloneNode = pHead.next;
-        newNode =pHead;
-        while(newNode.next!=null){
-            RandomListNode tempNode= newNode.next;
+        newNode = pHead;
+        while (newNode.next != null) {
+            RandomListNode tempNode = newNode.next;
             newNode.next = tempNode.next;
             newNode = tempNode;
         }
