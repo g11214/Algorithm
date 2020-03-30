@@ -1,4 +1,4 @@
-package solution;
+package solution.Node;
 
 import common.RandomListNode;
 

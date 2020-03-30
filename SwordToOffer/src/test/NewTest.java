@@ -1,7 +1,7 @@
 package test;
 
 import common.ListNode;
-import solution.RemoveDupNode;
+import solution.Node.RemoveDupNode;
 
 public class NewTest {
     public static void main(String[] args){

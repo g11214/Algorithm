@@ -1,4 +1,4 @@
-package solution;
+package solution.Tree;
 
 import common.TreeNode;
 
@@ -7,10 +7,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 从上到下按层打印二叉树，同一层结点从左至右输出。每一层输出一行。
+ * @author ：Tong
+ * @date ：Created in 2019/9/11 13:57
+ * @description：请实现一个函数按照之字形打印二叉树，即第一行按照从左到右的顺序打印，第二层按照从右至左的顺序打印，第三行按照从左到右的顺序打印，其他行以此类推。
+ * @version: $
  */
-public class PrintTreeByFloor {
-    ArrayList<ArrayList<Integer>> Print(TreeNode pRoot) {
+public class ZhiPrintTree {
+    public ArrayList<ArrayList<Integer>> Print(TreeNode pRoot) {
         ArrayList<ArrayList<Integer>> arrFloorList = new ArrayList<>();
         ArrayList<Integer> arrFloor = new ArrayList<>();
         if(pRoot==null){
@@ -24,11 +27,19 @@ public class PrintTreeByFloor {
         int floorNextCount = 0;
         //当前层索引
         int floorIndex = 0;
+        //当前层数
+        int floorNum = 1;
 
         while (!queue.isEmpty()) {
             TreeNode tempNode = queue.poll();
+
             floorIndex++;
-            arrFloor.add(tempNode.val);
+            if(floorNum%2!=0){
+                arrFloor.add(tempNode.val);
+            }else{
+                arrFloor.add(0,tempNode.val);
+            }
+
             if (tempNode.left != null) {
                 queue.offer(tempNode.left);
                 floorNextCount++;
@@ -39,6 +50,7 @@ public class PrintTreeByFloor {
             }
             //当前层结束
             if (floorIndex == floorCount) {
+                floorNum++;
                 floorCount = floorNextCount;
                 floorIndex = 0;
                 floorNextCount = 0;
