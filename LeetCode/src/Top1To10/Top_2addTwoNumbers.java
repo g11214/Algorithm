@@ -8,7 +8,7 @@ import common.ListNode;
  * @description：
  * @version: $
  */
-public class addTwoNumbers {
+public class Top_2addTwoNumbers {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode longNode = l1;
         ListNode shortNode = l2;
