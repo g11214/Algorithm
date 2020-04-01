@@ -13,7 +13,7 @@ import java.util.Set;
 public class lengthOfLongestSubstring {
     public int lengthOfLongestSubstring(String s) {
         int len = s.length();
-        Set<Character> set = new LinkedHashSet<>();
+        Set<Character> set = new HashSet<>();
         int maxLen = 0, leftIndex = 0, rightIndex = 0;
 
         while (rightIndex < len) {
