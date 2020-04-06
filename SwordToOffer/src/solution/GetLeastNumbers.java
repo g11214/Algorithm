@@ -1,8 +1,6 @@
 package solution;
 
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.PriorityQueue;
 
 /**
  * @author ：Tong
@@ -13,13 +11,22 @@ import java.util.PriorityQueue;
 public class GetLeastNumbers {
     public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
         ArrayList<Integer> arr = new ArrayList<>();
-        PriorityQueue pq = new PriorityQueue<Integer>(k, new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o2.compareTo(o1);
+
+        int len = input.length;
+        if (k > len) {
+            return arr;
+        }
+        for (int i = 0; i < k; i++) {
+            //冒泡次数
+            for (int j = 0; j < len - i - 1; j++) {
+                //小则交换,一次冒泡，最小的在最后
+                if (input[j] < input[j + 1]) {
+                    int tempVal = input[j];
+                    input[j] = input[j + 1];
+                    input[j + 1] = tempVal;
+                }
             }
-        });
-        for (int i = 0; i < input.length; i++) {
+            arr.add(input[len - i]);
         }
         return arr;
     }

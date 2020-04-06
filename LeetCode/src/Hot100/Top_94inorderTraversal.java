@@ -1,4 +1,4 @@
-package Top1To10;
+package Hot100;
 
 import common.TreeNode;
 

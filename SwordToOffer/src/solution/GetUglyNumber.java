@@ -9,6 +9,9 @@ import java.util.ArrayList;
  */
 public class GetUglyNumber {
     public int solution(int index) {
+        if(index==0){
+            return 0;
+        }
         ArrayList<Integer> list = new ArrayList<>();
         int twoIndex = 0;
         int threeIndex = 0;
@@ -32,7 +35,7 @@ public class GetUglyNumber {
                 fiveIndex++;
             }
         }
-        return list.get(index);
+        return list.get(index-1);
     }
 
     public int min(int a, int b, int c) {
