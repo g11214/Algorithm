@@ -5,7 +5,7 @@ package Hot100;
  * @author: Tong
  * @date: 2020-03-30 19:56
  */
-public class Top_4findMedianSortedArrays {
+public class Top_4FindMedianSortedArrays {
     public double solution(int[] nums1, int[] nums2) {
         int len1 = nums1.length;
         int len2 = nums2.length;

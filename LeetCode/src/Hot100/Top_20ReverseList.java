@@ -10,7 +10,7 @@ import java.util.ArrayDeque;
  * @description：
  * @version: $
  */
-public class Top_20reverseList {
+public class Top_20ReverseList {
     public ListNode solution(ListNode head) {
         if (head != null && head.next != null) {
             ListNode newHeadNode = solution(head.next);

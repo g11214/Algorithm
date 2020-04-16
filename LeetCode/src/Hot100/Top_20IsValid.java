@@ -10,7 +10,7 @@ import java.util.Stack;
  * @description：
  * @version: $
  */
-public class Top_20isValid {
+public class Top_20IsValid {
     public boolean solution(String s) {
         if(s.length()<=1){
             return false;

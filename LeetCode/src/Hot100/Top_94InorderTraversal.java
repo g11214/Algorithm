@@ -12,7 +12,7 @@ import java.util.Stack;
  * @description： 给定一个二叉树，返回它的中序 遍历。
  * @version: $
  */
-public class Top_94inorderTraversal {
+public class Top_94InorderTraversal {
     public List<Integer> solution(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         if (root != null) {

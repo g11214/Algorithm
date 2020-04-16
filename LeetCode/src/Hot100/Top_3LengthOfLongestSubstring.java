@@ -11,7 +11,7 @@ import java.util.Set;
  * @description： 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
  * @version: $
  */
-public class Top_3lengthOfLongestSubstring {
+public class Top_3LengthOfLongestSubstring {
     public int solution(String s) {
         int len = s.length();
         Set<Character> set = new LinkedHashSet<>();

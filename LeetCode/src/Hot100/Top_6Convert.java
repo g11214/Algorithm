@@ -6,7 +6,7 @@ package Hot100;
  * @description：
  * @version: $
  */
-public class Top_6convert {
+public class Top_6Convert {
     public String solution(String s, int numRows) {
         int len = s.length();
         char[][] strArr = new char[numRows][len / 2];

@@ -6,7 +6,7 @@ package Hot100;
  * @description：
  * @version: $
  */
-public class Top_5longestPalindrome {
+public class Top_5LongestPalindrome {
 
     public boolean isHuiString(String s) {
         return new StringBuffer(s).reverse().toString().equals(s);

@@ -6,7 +6,7 @@ package Top1To10;
  * @description： 给你一个整数数组 nums ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字）。
  * @version: $
  */
-public class Top_152maxProduct {
+public class Top_152MaxProduct {
     public int solution(int[] nums) {
         int len = nums.length;
 
