@@ -10,6 +10,6 @@ import java.util.List;
  */
 public class Top_78Subsets {
     public List<List<Integer>> solution(int[] nums) {
-
+        return null;
     }
 }
