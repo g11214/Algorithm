@@ -28,7 +28,4 @@ public class Top_1TwoSum {
         }
         return indexs;
     }
-
-    public static void main(String[] args) {
-    }
 }

@@ -8,51 +8,49 @@ import java.util.Set;
 /**
  * @author ：Tong
  * @date ：Created in 2020/3/30 16:58
- * @description： 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+ * @description： 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+ * <p>
+ * 示例 1:
+ * <p>
+ * 输入: "abcabcbb"
+ * 输出: 3
+ * 解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+ * 示例 2:
+ * <p>
+ * 输入: "bbbbb"
+ * 输出: 1
+ * 解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
+ * 示例 3:
+ * <p>
+ * 输入: "pwwkew"
+ * 输出: 3
+ * 解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
+ *      请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
  * @version: $
  */
 public class Top_3LengthOfLongestSubstring {
-    public int solution(String s) {
-        int len = s.length();
-        Set<Character> set = new LinkedHashSet<>();
-        int maxLen = 0, leftIndex = 0, rightIndex = 0;
-
-        while (rightIndex < len) {
-            if (set.add(s.charAt(rightIndex))) {
-                rightIndex++;
-                int length = rightIndex - leftIndex;
-                if (maxLen < length) {
-                    maxLen = length;
-                }
-                rightIndex++;
-            } else {
-                set.remove(s.charAt(leftIndex));
-                leftIndex++;
-            }
+    public int lengthOfLongestSubstring(String s) {
+        if (s == null || s.length() == 0) {
+            return 0;
         }
-        return maxLen;
-    }
+        int left = 0;
+        int right = 0;
 
-    public static int solution2(String s) {
-        int len = s.length();
         Map<Character, Integer> map = new HashMap<>();
-        int maxLen = 0, leftIndex = 0;
+        int max = 0;
 
-        for (int rightIndex = 0; rightIndex < len; rightIndex++) {
-            char currChar = s.charAt(rightIndex);
-            //存在重复
-            if (map.containsKey(currChar)) {
-                //重复值是否小于左边界，小于说明未重复继续put，大于说明重复，取重复值右边一位索引重新作为左边界
-                leftIndex = Math.max(leftIndex,map.get(currChar)+1);
+        while (right < s.length()) {
+            char currCh = s.charAt(right);
+            right++;
+            map.put(currCh, map.getOrDefault(currCh, 0) + 1);
+
+            while (map.get(currCh) > 1) {
+                char leftCh = s.charAt(left);
+                left++;
+                map.put(leftCh, map.get(leftCh) - 1);
             }
-            map.put(currChar, rightIndex);
-            maxLen = Math.max(rightIndex - leftIndex + 1, maxLen);
+            max = Math.max(max, right - left);
         }
-
-        return maxLen;
-    }
-
-    public static void main(String[] args) {
-        System.out.println(solution2("tmmzuxt"));
+        return max;
     }
 }
